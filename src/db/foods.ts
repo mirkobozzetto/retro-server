@@ -9,3 +9,5 @@ const SchemaAliment = new mongoose.Schema({
   glucides: { type: String, required: true },
   graisses: { type: String, required: true },
 });
+
+export const Aliment = mongoose.model("Aliment", SchemaAliment);
