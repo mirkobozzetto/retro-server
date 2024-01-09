@@ -24,7 +24,6 @@ const SchemaAliment = new mongoose.Schema({
   },
   proteines: {
     total: { type: Number, required: true, min: 0 },
-
     // Acides aminés essentiels (ne peuvent pas être synthétisés par le corps)
     histidine: { type: Number, required: false }, // Important pour la croissance et la réparation des tissus
     isoleucine: { type: Number, required: false }, // Joue un rôle dans la synthèse des protéines et le métabolisme
