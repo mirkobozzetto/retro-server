@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
+import { Schema, SchemaTypes } from "mongoose";
 
 const SchemaAliment = new mongoose.Schema({
   aliment: { type: String, required: true },
   calories: { type: Number, required: true, min: 0 },
   glucides: { type: Number, required: true, min: 0 },
-  categorie: {
+  categories: {
     type: String,
     required: true,
     enum: [
