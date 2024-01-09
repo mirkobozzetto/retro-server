@@ -1,443 +1,726 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajouter un aliment</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <h1>Ajouter un aliment</h1>
-    <form action="/ajouter-aliment" method="POST">
-      <label for="aliment">Aliment:</label>
-      <input type="text" id="aliment" name="aliment" required /><br />
+  <body class="m-4">
+    <h1 class="text-2xl font-bold mb-4">Ajouter un aliment</h1>
+    <form action="/ajouter-aliment" method="POST" class="max-w-xl m-auto">
+      <div class="mb-4">
+        <label for="aliment" class="block text-sm font-medium text-gray-700"
+          >Aliment:</label
+        >
+        <input
+          type="text"
+          id="aliment"
+          name="aliment"
+          required
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        />
+      </div>
 
-      <label for="calories">Calories:</label>
-      <input type="number" id="calories" name="calories" required /><br />
+      <div class="mb-4">
+        <label for="calories" class="block text-sm font-medium text-gray-700"
+          >Calories (par 100g):</label
+        >
+        <input
+          type="number"
+          id="calories"
+          name="calories"
+          required
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        />
+      </div>
 
-      <label for="glucides">Glucides:</label>
-      <input type="number" id="glucides" name="glucides" required /><br />
+      <div class="mb-4">
+        <label for="glucides" class="block text-sm font-medium text-gray-700"
+          >Glucides (par 100g):</label
+        >
+        <input
+          type="number"
+          id="glucides"
+          name="glucides"
+          required
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        />
+      </div>
 
-      <label for="categories">Catégories:</label>
-      <select id="categories" name="categories" required>
-        <option value="FRUITS ET LÉGUMES">FRUITS ET LÉGUMES</option>
-        <option value="PRODUITS CÉRÉALIERS ET LÉGUMINEUSES">
-          PRODUITS CÉRÉALIERS ET LÉGUMINEUSES
-        </option>
-        <option value="PRODUITS LAITIERS">PRODUITS LAITIERS</option>
-        <option value="VIANDE, POISSON ET FRUITS DE MER">
-          VIANDE, POISSON ET FRUITS DE MER
-        </option>
-        <option value="MATIÈRES GRASSES">MATIÈRES GRASSES</option>
-        <option value="PRODUITS SUCRÉS">PRODUITS SUCRÉS</option></select
-      ><br />
+      <div class="mb-4">
+        <label for="categories" class="block text-sm font-medium text-gray-700"
+          >Catégories:</label
+        >
+        <select
+          id="categories"
+          name="categorie"
+          required
+          class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm"
+        >
+          <option value="FRUITS ET LÉGUMES">FRUITS ET LÉGUMES</option>
+          <option value="PRODUITS CÉRÉALIERS ET LÉGUMINEUSES">
+            PRODUITS CÉRÉALIERS ET LÉGUMINEUSES
+          </option>
+          <option value="PRODUITS LAITIERS">PRODUITS LAITIERS</option>
+          <option value="VIANDE, POISSON ET FRUITS DE MER">
+            VIANDE, POISSON ET FRUITS DE MER
+          </option>
+          <option value="MATIÈRES GRASSES">MATIÈRES GRASSES</option>
+          <option value="PRODUITS SUCRÉS">PRODUITS SUCRÉS</option>
+        </select>
+      </div>
 
-      <label for="lipides_saturees">Graisses saturées:</label>
-      <input
-        type="number"
-        id="lipides_saturees"
-        name="lipides.saturees"
-        required
-      /><br />
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold">Lipides (par 100g)</h2>
 
-      <label for="lipides_monoInsaturees">Graisses mono-insaturées:</label>
-      <input
-        type="number"
-        id="lipides_monoInsaturees"
-        name="lipides.monoInsaturees"
-        required
-      /><br />
+        <label
+          for="lipides_saturees"
+          class="block text-sm font-medium text-gray-700"
+          >Graisses saturées:</label
+        >
+        <input
+          type="number"
+          id="lipides_saturees"
+          name="lipides.saturees"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        />
 
-      <label for="lipides_polyInsaturees">Graisses poly-insaturées:</label>
-      <input
-        type="number"
-        id="lipides_polyInsaturees"
-        name="lipides.polyInsaturees"
-        required
-      /><br />
+        <br />
 
-      <label for="proteines_total">Protéines totales:</label>
-      <input
-        type="number"
-        id="proteines_total"
-        name="proteines.total"
-        required
-      /><br />
+        <label
+          for="lipides_monoInsaturees"
+          class="block text-sm font-medium text-gray-700"
+          >Graisses mono-insaturées:</label
+        >
+        <input
+          type="number"
+          id="lipides_monoInsaturees"
+          name="lipides.monoInsaturees"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        />
 
-      <!-- Ajoutez les autres champs du formulaire pour les acides aminés essentiels -->
+        <br />
 
-      <!-- Acides aminés essentiels -->
-      <label for="proteines_histidine">Histidine:</label>
-      <input
-        type="number"
-        id="proteines_histidine"
-        name="proteines.histidine"
-        required
-      /><br />
+        <label
+          for="lipides_polyInsaturees"
+          class="block text-sm font-medium text-gray-700"
+          >Graisses poly-insaturées:</label
+        >
+        <input
+          type="number"
+          id="lipides_polyInsaturees"
+          name="lipides.polyInsaturees"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        />
 
-      <label for="proteines_isoleucine">Isoleucine:</label>
-      <input
-        type="number"
-        id="proteines_isoleucine"
-        name="proteines.isoleucine"
-        required
-      /><br />
+        <br />
+      </div>
 
-      <label for="proteines_leucine">Leucine:</label>
-      <input
-        type="number"
-        id="proteines_leucine"
-        name="proteines.leucine"
-        required
-      /><br />
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold">Protéines (par 100g)</h2>
+        <label
+          for="proteines_total"
+          class="block text-sm font-medium text-gray-700"
+          >Protéines totales:</label
+        >
+        <input
+          type="number"
+          id="proteines_total"
+          name="proteines.total"
+          required
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_lysine">Lysine:</label>
-      <input
-        type="number"
-        id="proteines_lysine"
-        name="proteines.lysine"
-        required
-      /><br />
+        <h3 class="text-md font-semibold">Acides Aminés Essentiels</h3>
+        <label
+          for="proteines_histidine"
+          class="block text-sm font-medium text-gray-700"
+          >Histidine:</label
+        >
+        <input
+          type="number"
+          id="proteines_histidine"
+          name="proteines.histidine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_methionine">Méthionine:</label>
-      <input
-        type="number"
-        id="proteines_methionine"
-        name="proteines.methionine"
-        required
-      /><br />
+        <label
+          for="proteines_isoleucine"
+          class="block text-sm font-medium text-gray-700"
+          >Isoleucine:</label
+        >
+        <input
+          type="number"
+          id="proteines_isoleucine"
+          name="proteines.isoleucine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_phenylalanine">Phénylalanine:</label>
-      <input
-        type="number"
-        id="proteines_phenylalanine"
-        name="proteines.phenylalanine"
-        required
-      /><br />
+        <label
+          for="proteines_leucine"
+          class="block text-sm font-medium text-gray-700"
+          >Leucine:</label
+        >
+        <input
+          type="number"
+          id="proteines_leucine"
+          name="proteines.leucine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_threonine">Thrénine:</label>
-      <input
-        type="number"
-        id="proteines_threonine"
-        name="proteines.threonine"
-        required
-      /><br />
+        <label
+          for="proteines_lysine"
+          class="block text-sm font-medium text-gray-700"
+          >Lysine:</label
+        >
+        <input
+          type="number"
+          id="proteines_lysine"
+          name="proteines.lysine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_tryptophane">Tryptophane:</label>
-      <input
-        type="number"
-        id="proteines_tryptophane"
-        name="proteines.tryptophane"
-        required
-      /><br />
+        <label
+          for="proteines_methionine"
+          class="block text-sm font-medium text-gray-700"
+          >Méthionine:</label
+        >
+        <input
+          type="number"
+          id="proteines_methionine"
+          name="proteines.methionine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_valine">Valine:</label>
-      <input
-        type="number"
-        id="proteines_valine"
-        name="proteines.valine"
-        required
-      /><br />
+        <label
+          for="proteines_phenylalanine"
+          class="block text-sm font-medium text-gray-700"
+          >Phénylalanine:</label
+        >
+        <input
+          type="number"
+          id="proteines_phenylalanine"
+          name="proteines.phenylalanine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <!-- Ajoutez les autres champs du formulaire pour les acides aminés non essentiels -->
+        <label
+          for="proteines_threonine"
+          class="block text-sm font-medium text-gray-700"
+          >Thrénine:</label
+        >
+        <input
+          type="number"
+          id="proteines_threonine"
+          name="proteines.threonine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <!-- Acides aminés non essentiels -->
-      <label for="proteines_alanine">Alanine:</label>
-      <input
-        type="number"
-        id="proteines_alanine"
-        name="proteines.alanine"
-        required
-      /><br />
+        <label
+          for="proteines_tryptophane"
+          class="block text-sm font-medium text-gray-700"
+          >Tryptophane:</label
+        >
+        <input
+          type="number"
+          id="proteines_tryptophane"
+          name="proteines.tryptophane"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_arginine">Arginine:</label>
-      <input
-        type="number"
-        id="proteines_arginine"
-        name="proteines.arginine"
-        required
-      /><br />
+        <label
+          for="proteines_valine"
+          class="block text-sm font-medium text-gray-700"
+          >Valine:</label
+        >
+        <input
+          type="number"
+          id="proteines_valine"
+          name="proteines.valine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
+      </div>
+      <div class="mb-4">
+        <h3 class="text-md font-semibold">Acides Aminés Non Essentiels</h3>
+        <label
+          for="proteines_alanine"
+          class="block text-sm font-medium text-gray-700"
+          >Alanine:</label
+        >
+        <input
+          type="number"
+          id="proteines_alanine"
+          name="proteines.alanine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_asparagine">Asparagine:</label>
-      <input
-        type="number"
-        id="proteines_asparagine"
-        name="proteines.asparagine"
-        required
-      /><br />
+        <label
+          for="proteines_arginine"
+          class="block text-sm font-medium text-gray-700"
+          >Arginine:</label
+        >
+        <input
+          type="number"
+          id="proteines_arginine"
+          name="proteines.arginine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_acide_aspartique">Acide aspartique:</label>
-      <input
-        type="number"
-        id="proteines_acide_aspartique"
-        name="proteines.acide_aspartique"
-        required
-      /><br />
+        <label
+          for="proteines_asparagine"
+          class="block text-sm font-medium text-gray-700"
+          >Asparagine:</label
+        >
+        <input
+          type="number"
+          id="proteines_asparagine"
+          name="proteines.asparagine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_cysteine">Cystéine:</label>
-      <input
-        type="number"
-        id="proteines_cysteine"
-        name="proteines.cysteine"
-        required
-      /><br />
+        <label
+          for="proteines_acide_aspartique"
+          class="block text-sm font-medium text-gray-700"
+          >Acide aspartique:</label
+        >
+        <input
+          type="number"
+          id="proteines_acide_aspartique"
+          name="proteines.acide_aspartique"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_acide_glutamique">Acide glutamique:</label>
-      <input
-        type="number"
-        id="proteines_acide_glutamique"
-        name="proteines.acide_glutamique"
-        required
-      /><br />
+        <label
+          for="proteines_cysteine"
+          class="block text-sm font-medium text-gray-700"
+          >Cystéine:</label
+        >
+        <input
+          type="number"
+          id="proteines_cysteine"
+          name="proteines.cysteine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_glutamine">Glutamine:</label>
-      <input
-        type="number"
-        id="proteines_glutamine"
-        name="proteines.glutamine"
-        required
-      /><br />
+        <label
+          for="proteines_acide_glutamique"
+          class="block text-sm font-medium text-gray-700"
+          >Acide glutamique:</label
+        >
+        <input
+          type="number"
+          id="proteines_acide_glutamique"
+          name="proteines.acide_glutamique"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_glycine">Glycine:</label>
-      <input
-        type="number"
-        id="proteines_glycine"
-        name="proteines.glycine"
-        required
-      /><br />
+        <label
+          for="proteines_glutamine"
+          class="block text-sm font-medium text-gray-700"
+          >Glutamine:</label
+        >
+        <input
+          type="number"
+          id="proteines_glutamine"
+          name="proteines.glutamine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_proline">Proline:</label>
-      <input
-        type="number"
-        id="proteines_proline"
-        name="proteines.proline"
-        required
-      /><br />
+        <label
+          for="proteines_glycine"
+          class="block text-sm font-medium text-gray-700"
+          >Glycine:</label
+        >
+        <input
+          type="number"
+          id="proteines_glycine"
+          name="proteines.glycine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_serine">Sérine:</label>
-      <input
-        type="number"
-        id="proteines_serine"
-        name="proteines.serine"
-        required
-      /><br />
+        <label
+          for="proteines_proline"
+          class="block text-sm font-medium text-gray-700"
+          >Proline:</label
+        >
+        <input
+          type="number"
+          id="proteines_proline"
+          name="proteines.proline"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="proteines_tyrosine">Tyrosine:</label>
-      <input
-        type="number"
-        id="proteines_tyrosine"
-        name="proteines.tyrosine"
-        required
-      /><br />
+        <label
+          for="proteines_serine"
+          class="block text-sm font-medium text-gray-700"
+          >Sérine:</label
+        >
+        <input
+          type="number"
+          id="proteines_serine"
+          name="proteines.serine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <!-- Ajoutez les champs pour les vitamines -->
+        <label
+          for="proteines_tyrosine"
+          class="block text-sm font-medium text-gray-700"
+          >Tyrosine:</label
+        >
+        <input
+          type="number"
+          id="proteines_tyrosine"
+          name="proteines.tyrosine"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
+      </div>
 
-      <label for="vitamines_A">Vitamine A:</label>
-      <input type="number" id="vitamines_A" name="vitamines.A" required /><br />
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold">Vitamines (par 100g)</h2>
 
-      <label for="vitamines_B1">Vitamine B1:</label>
-      <input
-        type="number"
-        id="vitamines_B1"
-        name="vitamines.B1"
-        required
-      /><br />
+        <label for="vitamines_A" class="block text-sm font-medium text-gray-700"
+          >Vitamine A:</label
+        >
+        <input
+          type="number"
+          id="vitamines_A"
+          name="vitamines.A"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B2">Vitamine B2:</label>
-      <input
-        type="number"
-        id="vitamines_B2"
-        name="vitamines.B2"
-        required
-      /><br />
+        <label
+          for="vitamines_B1"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B1 (Thiamine):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B1"
+          name="vitamines.B1"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B3">Vitamine B3:</label>
-      <input
-        type="number"
-        id="vitamines_B3"
-        name="vitamines.B3"
-        required
-      /><br />
+        <label
+          for="vitamines_B2"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B2 (Riboflavine):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B2"
+          name="vitamines.B2"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B5">Vitamine B5:</label>
-      <input
-        type="number"
-        id="vitamines_B5"
-        name="vitamines.B5"
-        required
-      /><br />
+        <label
+          for="vitamines_B3"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B3 (Niacine):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B3"
+          name="vitamines.B3"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B6">Vitamine B6:</label>
-      <input
-        type="number"
-        id="vitamines_B6"
-        name="vitamines.B6"
-        required
-      /><br />
+        <label
+          for="vitamines_B5"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B5 (Acide pantothénique):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B5"
+          name="vitamines.B5"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B7">Vitamine B7:</label>
-      <input
-        type="number"
-        id="vitamines_B7"
-        name="vitamines.B7"
-        required
-      /><br />
+        <label
+          for="vitamines_B6"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B6 (Pyridoxine):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B6"
+          name="vitamines.B6"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B9">Vitamine B9:</label>
-      <input
-        type="number"
-        id="vitamines_B9"
-        name="vitamines.B9"
-        required
-      /><br />
+        <label
+          for="vitamines_B7"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B7 (Biotine):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B7"
+          name="vitamines.B7"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_B12">Vitamine B12:</label>
-      <input
-        type="number"
-        id="vitamines_B12"
-        name="vitamines.B12"
-        required
-      /><br />
+        <label
+          for="vitamines_B9"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B9 (Acide folique):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B9"
+          name="vitamines.B9"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_C">Vitamine C:</label>
-      <input type="number" id="vitamines_C" name="vitamines.C" required /><br />
+        <label
+          for="vitamines_B12"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine B12 (Cobalamines):</label
+        >
+        <input
+          type="number"
+          id="vitamines_B12"
+          name="vitamines.B12"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_D">Vitamine D:</label>
-      <input type="number" id="vitamines_D" name="vitamines.D" required /><br />
+        <label for="vitamines_C" class="block text-sm font-medium text-gray-700"
+          >Vitamine C (Acide ascorbique):</label
+        >
+        <input
+          type="number"
+          id="vitamines_C"
+          name="vitamines.C"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_E">Vitamine E:</label>
-      <input type="number" id="vitamines_E" name="vitamines.E" required /><br />
+        <label for="vitamines_D" class="block text-sm font-medium text-gray-700"
+          >Vitamine D (Calciférols):</label
+        >
+        <input
+          type="number"
+          id="vitamines_D"
+          name="vitamines.D"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_K1">Vitamine K1:</label>
-      <input
-        type="number"
-        id="vitamines_K1"
-        name="vitamines.K1"
-        required
-      /><br />
+        <label for="vitamines_E" class="block text-sm font-medium text-gray-700"
+          >Vitamine E (Tocophérols et tocotriénols):</label
+        >
+        <input
+          type="number"
+          id="vitamines_E"
+          name="vitamines.E"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="vitamines_K2">Vitamine K2:</label>
-      <input
-        type="number"
-        id="vitamines_K2"
-        name="vitamines.K2"
-        required
-      /><br />
+        <label
+          for="vitamines_K1"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine K1 (Phylloquinone):</label
+        >
+        <input
+          type="number"
+          id="vitamines_K1"
+          name="vitamines.K1"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <!-- Ajoutez les champs pour les minéraux -->
+        <label
+          for="vitamines_K2"
+          class="block text-sm font-medium text-gray-700"
+          >Vitamine K2 (Ménaquinones):</label
+        >
+        <input
+          type="number"
+          id="vitamines_K2"
+          name="vitamines.K2"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
+      </div>
 
-      <label for="mineraux_calcium">Calcium:</label>
-      <input
-        type="number"
-        id="mineraux_calcium"
-        name="mineraux.calcium"
-        required
-      /><br />
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold">Minéraux (par 100g)</h2>
 
-      <label for="mineraux_fer">Fer:</label>
-      <input
-        type="number"
-        id="mineraux_fer"
-        name="mineraux.fer"
-        required
-      /><br />
+        <label
+          for="mineraux_calcium"
+          class="block text-sm font-medium text-gray-700"
+          >Calcium:</label
+        >
+        <input
+          type="number"
+          id="mineraux_calcium"
+          name="mineraux.calcium"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_magnesium">Magnésium:</label>
-      <input
-        type="number"
-        id="mineraux_magnesium"
-        name="mineraux.magnesium"
-        required
-      /><br />
+        <label
+          for="mineraux_fer"
+          class="block text-sm font-medium text-gray-700"
+          >Fer:</label
+        >
+        <input
+          type="number"
+          id="mineraux_fer"
+          name="mineraux.fer"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_potassium">Potassium:</label>
-      <input
-        type="number"
-        id="mineraux_potassium"
-        name="mineraux.potassium"
-        required
-      /><br />
+        <label
+          for="mineraux_magnesium"
+          class="block text-sm font-medium text-gray-700"
+          >Magnésium:</label
+        >
+        <input
+          type="number"
+          id="mineraux_magnesium"
+          name="mineraux.magnesium"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_sodium">Sodium:</label>
-      <input
-        type="number"
-        id="mineraux_sodium"
-        name="mineraux.sodium"
-        required
-      /><br />
+        <label
+          for="mineraux_potassium"
+          class="block text-sm font-medium text-gray-700"
+          >Potassium:</label
+        >
+        <input
+          type="number"
+          id="mineraux_potassium"
+          name="mineraux.potassium"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_zinc">Zinc:</label>
-      <input
-        type="number"
-        id="mineraux_zinc"
-        name="mineraux.zinc"
-        required
-      /><br />
+        <label
+          for="mineraux_sodium"
+          class="block text-sm font-medium text-gray-700"
+          >Sodium:</label
+        >
+        <input
+          type="number"
+          id="mineraux_sodium"
+          name="mineraux.sodium"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_phosphore">Phosphore:</label>
-      <input
-        type="number"
-        id="mineraux_phosphore"
-        name="mineraux.phosphore"
-        required
-      /><br />
+        <label
+          for="mineraux_zinc"
+          class="block text-sm font-medium text-gray-700"
+          >Zinc:</label
+        >
+        <input
+          type="number"
+          id="mineraux_zinc"
+          name="mineraux.zinc"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_iode">Iode:</label>
-      <input
-        type="number"
-        id="mineraux_iode"
-        name="mineraux.iode"
-        required
-      /><br />
+        <label
+          for="mineraux_phosphore"
+          class="block text-sm font-medium text-gray-700"
+          >Phosphore:</label
+        >
+        <input
+          type="number"
+          id="mineraux_phosphore"
+          name="mineraux.phosphore"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_selenium">Sélénium:</label>
-      <input
-        type="number"
-        id="mineraux_selenium"
-        name="mineraux.selenium"
-        required
-      /><br />
+        <label
+          for="mineraux_iode"
+          class="block text-sm font-medium text-gray-700"
+          >Iode:</label
+        >
+        <input
+          type="number"
+          id="mineraux_iode"
+          name="mineraux.iode"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_copper">Cuivre:</label>
-      <input
-        type="number"
-        id="mineraux_copper"
-        name="mineraux.copper"
-        required
-      /><br />
+        <label
+          for="mineraux_selenium"
+          class="block text-sm font-medium text-gray-700"
+          >Sélénium:</label
+        >
+        <input
+          type="number"
+          id="mineraux_selenium"
+          name="mineraux.selenium"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_manganese">Manganèse:</label>
-      <input
-        type="number"
-        id="mineraux_manganese"
-        name="mineraux.manganese"
-        required
-      /><br />
+        <label
+          for="mineraux_cuivre"
+          class="block text-sm font-medium text-gray-700"
+          >Cuivre:</label
+        >
+        <input
+          type="number"
+          id="mineraux_cuivre"
+          name="mineraux.cuivre"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_chrome">Chrome:</label>
-      <input
-        type="number"
-        id="mineraux_chrome"
-        name="mineraux.chrome"
-        required
-      /><br />
+        <label
+          for="mineraux_manganese"
+          class="block text-sm font-medium text-gray-700"
+          >Manganèse:</label
+        >
+        <input
+          type="number"
+          id="mineraux_manganese"
+          name="mineraux.manganese"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_molybdene">Molybdène:</label>
-      <input
-        type="number"
-        id="mineraux_molybdene"
-        name="mineraux.molybdene"
-        required
-      /><br />
+        <label
+          for="mineraux_chrome"
+          class="block text-sm font-medium text-gray-700"
+          >Chrome:</label
+        >
+        <input
+          type="number"
+          id="mineraux_chrome"
+          name="mineraux.chrome"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <label for="mineraux_fluor">Fluor:</label>
-      <input
-        type="number"
-        id="mineraux_fluor"
-        name="mineraux.fluor"
-        required
-      /><br />
+        <label
+          for="mineraux_molybdene"
+          class="block text-sm font-medium text-gray-700"
+          >Molybdène:</label
+        >
+        <input
+          type="number"
+          id="mineraux_molybdene"
+          name="mineraux.molybdene"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
 
-      <button type="submit">Enregistrer</button>
+        <label
+          for="mineraux_fluor"
+          class="block text-sm font-medium text-gray-700"
+          >Fluor:</label
+        >
+        <input
+          type="number"
+          id="mineraux_fluor"
+          name="mineraux.fluor"
+          class="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm"
+        /><br />
+      </div>
+
+      <button
+        type="submit"
+        class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Enregistrer
+      </button>
     </form>
   </body>
 </html>
